@@ -1,7 +1,10 @@
 require 'rails_helper'
+require 'pry'
 
 RSpec.describe Post, type: :model do
-  subject { Post.new(title: 'This is my first post', text: 'Nice', likes_counter: 0, comment_counter: 0) }
+  subject do
+    Post.create(title: 'This is my first post', text: 'Nice', likes_counter: 0, comment_counter: 0, author_id: 1)
+  end
   before { subject.save }
 
   it 'Title should not be empty or nil' do
@@ -36,5 +39,15 @@ RSpec.describe Post, type: :model do
   it 'LikesCounter should not be below 0' do
     subject.likes_counter = -1
     expect(subject).to_not be_valid
+  end
+
+  it 'CommentsCounter should be greater than 0' do
+    subject.comment_counter = 10
+    subject.likes_counter = 10
+    user = User.new(name: 'Mohammed', bio: 'This is my bio', posts_counter: 0)
+    subject.author_id = user.id
+    subject.save
+    binding.pry # rubocop:todo Lint/Debugger
+    expect(subject).to be_valid
   end
 end
