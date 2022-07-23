@@ -1,87 +1,40 @@
-# Blog app
+# Blog App
 
-Blog app is a classic example of a blog website. Its shows the list of posts and empower readers to interact with them by adding comments and liking posts
+Blog Application is a full stack application built with Ruby on Rails framework that allows users to create, edit, and delete posts and comments on their blog.
 
-# Build with
+## Getting Started
 
-## Rails 
-## Postgresql
+Run bundle `install` to install the dependancies.
 
-# Getting started
->> To get a local copy up and running follow these simple example steps.
+Run `rails s` or `rails server` to start the server.
 
-# Prerequise
-[Ruby]()
-[Rails]()
+Open `http://localhost:3000` in your browser.
 
-# Setup
+Run `bundle exec rspec`. to run the tests.
 
-- Make sure you have Ruby on Rails set up properly on your computer
-- Clone or download this repo on your machine
-- Enter project directory
+## Authors
 
-# Development Database
+👤 **Mwafrika Josué**
 
-```
-# create user
-sudo -u postgres createuser blog -s
+- GitHub: @mwafrika
+- Twitter: @mwafrikamufung1
+- LinkedIn: @mwafrika-mufungizi
 
-# Create the database
-rails db:create
+👤 **Jerry Owusu**
 
-# Create database Migration
-rails db:migrate
-```
+- GitHub: [jerryowusu](https://github.com/jerryowusu)
+- LinkedIn: [jerry owusu](https://www.linkedin.com/in/jerry-owusu/)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-# Install
-```
-bundle install
-```
-
-# Run
-```
-rails s
-```
-
-# Test
-```
-rspec
-```
-
-# 👤 Yannick
-
-- GitHub: [@YannickZahinda](https://github.com/YannickZahinda)
-- Twitter: [@ZahindaY](https://twitter.com/ZahindaY)
-- LinkedIn: [Yannick MULIKUZA](https://linkedin.com/in/linkedinhandle)
-
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page.]()
+Feel free to check the issues page.
 
-# Show support
+## Show your support
+
 Give a ⭐️ if you like this project!
 
-# 📝 License
-This project is [MIT]() licensed.
+## License
+
+This is a MIT licensed project.

@@ -1,1 +1,51 @@
-<h2>Here is the list of posts of a given user</h2>
+<section class="user-details">
+<section class='user-section-card'>
+<div class="user-img"><img src="<%= @user.photo %>" alt="user_photo"></div>
+  <div class="user-card">
+    <div class="user-card__name">
+    <h1><%= @user.name %><h1>
+    </div>
+    <div class="user-card__email">
+    <p>Number of posts:<%= @user.postsCounter %> </p>  
+  </div>
+</section>
+   
+<% @post.each do |post| %>
+  <%# <%= link_to user_post_path(@user.id,post.id),  class: "post-p" do %> 
+    <section class='user-section-card'>
+        <div class="user-card comment-card">
+          <div class="user-card__name">
+          <%= link_to user_post_path(@user.id,post.id),  class: "post-p" do %> 
+            <%= post.text %>
+          <% end %>
+            <h3>Comments</h3>
+            <% post.user.comments.each do |comment| %>
+              <h4>Comment#<%= comment.id %>:<%=comment.text %></h4>
+              <% if can? :destroy, comment %>
+                <%= form_with url: user_post_comment_path(@user, @post, comment), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <button class="custom-button">Delete</button> 
+                <% end %> 
+              <% end %>
+            <% end %>
+          </div>
+          <div class="comment__like">
+            <p>Comments:<%= @user.postsCounter %> </p>  
+            <p>Likes:<%= post.likesCounter %> </p> 
+          </div>
+          <div class="actions">
+          <% if can? :destroy, @post %>
+            <%= form_with url: user_post_path(@user, post), method: :delete do %>
+              <button class="custom-button">Delete</button>
+            <% end %>
+          <% end %>
+            <%= link_to new_user_post_comment_path(@user, post) do %>
+              <button class="custom-button">Comment</button>
+            <% end %>
+            <%= button_to 'Like', user_post_likes_path(@user, post), method: :post, class: 'see-all'%>
+        </div>
+      <div>
+    </section>
+<% end %>
+ <%= link_to 'Create new post', new_user_post_path(@user.id), class: "see-all" %> 
+ <p class="copy-right">© 2022 GitHub, Inc. Terms</p>
+</section>

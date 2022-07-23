@@ -1,11 +1,19 @@
 class User < ApplicationRecord
-  has_many :posts, class_name: 'post', foreign_key: 'author_id'
-  has_many :comments, class_name: 'comment', foreign_key: 'author_id'
-  has_many :likes, class_name: 'like', foreign_key: 'author_id'
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+  has_many :posts, class_name: 'Post', foreign_key: 'user_id', dependent: :destroy
+  has_many :comments, class_name: 'Comment', foreign_key: 'user_id', dependent: :destroy
+  has_many :likes, class_name: 'Like', foreign_key: 'user_id', dependent: :destroy
 
-  def recent_posts
-    posts.order(created_at: :desc).limit(3)
+  validates :name, presence: true
+  validates :postsCounter, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  after_save :add_token
+
+  def recent_post
+    posts.last(3)
   end
-  validates :name, presence: true, allow_blank: false
-  validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  def add_token
+    update_column(:authentication_token, ApiHelper::JsonWebToken.encode(email))
+  end
 end
