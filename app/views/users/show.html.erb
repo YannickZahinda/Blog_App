@@ -1,1 +1,38 @@
-<h2>Here is a given specific user</h2>
+<section class="user-details">
+<section class='user-section-card'>
+<div class="user-img"><img src="<%= @user.photo %>" alt="user_photo"></div>
+<div class="user-card">
+  <div class="user-card__name">
+  <h1><%= @user.name %><h1>
+  </div>
+  <div class="user-card__email">
+  <p>Number of posts:<%= @user.posts.length %> </p>  
+  </div>
+</section>
+
+
+<section class='user-bio'>
+<div class="user-card">
+  <h1 class="user-card__name">
+    Bio
+  </h1>
+  <p> <%= @user.bio %></p>  
+</section>
+   
+    <% @user.posts.each_with_index do |post,index| %>
+      <section class='user-section-card'>
+      <div class="user-card comment-card">
+        <div class="user-card__name">
+         <h3> Post #<%= index+1 %> </h3>
+         <h4><%= post.text %></h4>
+        </div>
+        <div class="comment__like">
+        <p>Comments:<%= @user.comments.length %> </p>  
+        <p>Likes:<%= @user.likes.length %> </p>  
+        </div>
+      </section>
+    <% end %>
+
+ <%= link_to 'See all posts', user_posts_path(@user.id), class: "see-all" %>
+ <p class="copy-right">© 2022 GitHub, Inc. Terms</p>
+</section>

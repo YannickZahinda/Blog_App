@@ -1,1 +1,33 @@
-<h2>Here is the list of posts of a given user</h2>
+<section class="user-details">
+<section class='user-section-card'>
+<div class="user-img"><img src="<%= @user.photo %>" alt="user_photo"></div>
+  <div class="user-card">
+    <div class="user-card__name">
+    <h1><%= @user.name %><h1>
+    </div>
+    <div class="user-card__email">
+    <p>Number of posts:<%= @user.posts.length %> </p>  
+  </div>
+</section>
+   
+<% @post.each do |post| %>
+  <%= link_to user_post_path(@user.id,post.id),  class: "post-p" do %>
+    <section class='user-section-card'>
+        <div class="user-card comment-card">
+          <div class="user-card__name">
+            <%= post.text %>
+            <h3>Comments</h3>
+            <% @user.comments.each do |comm| %>
+              <h4>Comment# <%= comm.id %>:<%= comm.text %></h4>
+            <% end %>
+          </div>
+          <div class="comment__like">
+            <p>Comments : <%= @user.comments.length %> </p>  
+            <p>Likes:<%= @user.likes.length %> </p>  
+          </div>
+        <div>
+    </section>
+   <% end %>
+<% end %>
+ <p class="copy-right">© 2022 GitHub, Inc. Terms</p>
+</section>

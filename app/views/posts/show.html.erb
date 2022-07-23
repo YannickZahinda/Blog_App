@@ -1,1 +1,23 @@
-<h2>Show users posts</h2>
+<section class="user-details">
+<section class='user-section-card'>
+<div class="user-img"><h3>Post #<%= @post.id %> By <%= @user.name %></h3></div>
+  <div class="user-card">
+    <div class="user-card__name">
+    <h1>Comments <%= @post.comments.length %><h1>
+    </div>
+    <div class="user-card__email">
+    <p>Likes:<%= @post.likes.length %> </p>  
+  </div>
+</section>
+
+<div class='user-section-card'><%= @post.text %></div>
+
+<div class='user-section-card comment-owner'>
+<% @post.user.comments.each do |comm| %>
+  <p class='list-comment'><%= @user.name %> : <%= comm.text %></p>
+<% end %>
+</div>
+
+
+ <p class="copy-right">© 2022 GitHub, Inc. Terms</p>
+</section>
