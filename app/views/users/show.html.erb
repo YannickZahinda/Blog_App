@@ -6,7 +6,7 @@
   <h1><%= @user.name %><h1>
   </div>
   <div class="user-card__email">
-  <p>Number of posts:<%= @user.posts.length %> </p>  
+  <p>Number of posts:<%= @user.postsCounter || 0 %> </p>  
   </div>
 </section>
 
@@ -32,7 +32,6 @@
         </div>
       </section>
     <% end %>
-
  <%= link_to 'See all posts', user_posts_path(@user.id), class: "see-all" %>
  <p class="copy-right">© 2022 GitHub, Inc. Terms</p>
 </section>
