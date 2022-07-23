@@ -3,7 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :post, class_name: 'Post', foreign_key: 'post_id'
 
   def self.update_counter(post_id)
-    count_comments = Comment.where(post_id:).count
+    count_comments = Comment.where(post_id: post_id).count
     Post.find_by(id: post_id).update(commentsCounter: count_comments)
   end
 end
