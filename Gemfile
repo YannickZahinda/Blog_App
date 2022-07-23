@@ -10,8 +10,6 @@ gem 'rails', '~> 7.0.3'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 
-gem 'jwt'
-
 gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record
@@ -38,9 +36,6 @@ gem 'stimulus-rails'
 
 gem 'jbuilder'
 
-gem 'devise'
-
-gem 'cancancan', '~> 3.3'
 # Use Redis adapter to run Action Cable in production
 
 # gem "redis", "~> 4.0"
@@ -77,17 +72,9 @@ group :development, :test do
 
   gem 'ffi' # needed for tests in windows
 
-  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
-
   gem 'rails-controller-testing' # needed for tempelates
 
-  gem 'database_cleaner' # needed for tests
-
   gem 'rspec-rails'
-
-  gem 'webdrivers'
-
-  gem 'bullet'
 end
 
 group :development do
@@ -106,7 +93,8 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'factory_bot_rails'
-  gem 'faker'
+
   gem 'selenium-webdriver'
+
+  gem 'webdrivers'
 end

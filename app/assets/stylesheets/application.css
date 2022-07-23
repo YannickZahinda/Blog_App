@@ -97,7 +97,7 @@
 }
 
 .post-p {
-  /* text-decoration: none; */
+  text-decoration: none;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -112,41 +112,4 @@
 
 .list-comment {
   margin-right: auto;
-}
-
-.btn-container {
-  display: flex;
-  margin-right: auto;
-  margin-left: auto;
-  column-gap: 20px;
-}
-
-.comment-container {
-  width: 100%;
-  height: 100%;
-}
-
-.comm-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 20rem;
-}
-
-.comment-form {
-  height: 5rem;
-  width: 20rem;
-}
-
-.comment-form-2 {
-  height: 2rem;
-  width: 20rem;
-  border-radius: 10px;
-}
-
-.input-container {
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
 }
