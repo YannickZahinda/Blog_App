@@ -17,7 +17,7 @@
           <div class="user-card__name">
             <%= post.text %>
             <h3>Comments</h3>
-            <% @user.comments.each do |comm| %>
+            <% post.comments.each do |comm| %>
               <h4>Comment# <%= comm.id %>:<%= comm.text %></h4>
             <% end %>
           </div>
