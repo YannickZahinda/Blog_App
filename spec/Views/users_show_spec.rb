@@ -4,7 +4,7 @@ RSpec.describe 'Show post page: ', type: :feature do
   before(:each) do
     @user = User.create(name: 'Samuel Alemu', photo: '#', bio: 'A web dev', postsCounter: 0)
     @post = Post.create(title: 'Post one', text: 'Text body one', user_id: @user.id, commentsCounter: 0,
-        likesCounter: 0)
+                        likesCounter: 0)
     @comment_one = Comment.create(post: @post, user: @user, text: 'Comment one')
     @comment_two = Comment.create(post: @post, user: @user, text: 'Comment two')
     @comment_three = Comment.create(post: @post, user: @user, text: 'Comment three')

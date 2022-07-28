@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject do
-    @user = User.create(name: "Justion", photo: "png", bio: "Software Dev", postsCounter: 0)
+    @user = User.create(name: 'Justion', photo: 'png', bio: 'Software Dev', postsCounter: 0)
   end
 
   before { subject.save }
@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'name should be present' do
-    subject.name = "Justion"
+    subject.name = 'Justion'
     expect(subject).to be_valid
   end
 
